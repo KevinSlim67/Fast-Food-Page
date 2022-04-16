@@ -37,9 +37,18 @@ html, body, #root {
   background-color: rgba(255, 194, 80, 0.39);
 }
 
-#quote, #quote-client {
+#review, #review-client {
   font-size: 1.3em;
   font-style: italic;
   color: #640000;
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.fade-in {
+  opacity: 100%;
+  transition: opacity 400ms ease;
+}

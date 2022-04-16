@@ -1,67 +1,91 @@
 import React, { Component } from "react";
 
 class ReviewGenerator extends Component {
-  currentNumber;
-
   constructor() {
     super();
-    this.currentNumber = 0;
+    const currentNumber = 0;
     this.state = {
-      reviews: this.reviews[this.currentNumber]
+      reviews: this.reviews[currentNumber],
     };
   }
 
+  animationTime = 400;
+
   generateReview = () => {
-    let index = this.reviews.indexOf(this.state.reviews);
-    if (index === this.reviews.length - 1) index = -1;
-    index++;
-    console.log(index);
-    this.setState({ reviews: this.reviews[index] });
+    this.clientClasses = this.defaultClientClasses + " fade-out ";
+    this.reviewClasses = this.defaultReviewClasses + " fade-out ";
+    this.forceUpdate();
+
+    setTimeout(() => {
+      let index = this.reviews.indexOf(this.state.reviews);
+      if (index === this.reviews.length - 1) index = -1;
+      index++;
+      console.log(index);
+      this.setState({ reviews: this.reviews[index] });
+    }, this.animationTime)
+
   };
 
   reviews = [
     {
-      quote: "Really friendly staff !",
+      review: "Really friendly staff !",
       client: "Josh",
     },
     {
-      quote: "Their pepperoni pizza is to die for",
+      review: "Their pepperoni pizza is to die for",
       client: "Taylor",
     },
     {
-      quote: "Amazing experience, 10/10",
+      review: "Amazing experience, 10/10",
       client: "Courtney",
     },
     {
-      quote: "I think I've found my new favorite place",
+      review: "I think I've found my new favorite place",
       client: "Vivian",
     },
-    {},
+    {
+      review: "The meat is really fresh !",
+      client: "Alex"
+    },
+    {
+      review: "The interior is really cozy, this place almost feels like a second home",
+      client: "Joey"
+    },
   ];
 
+  removeFadeOutClasses = () => {
+    this.clientClasses = this.defaultClientClasses + " fade-in";
+    this.reviewClasses = this.defaultReviewClasses + " fade-in";
+    this.forceUpdate();
+  };
+
   componentDidMount() {
-    this.timerHandle = setInterval(this.generateReview, 5000);
+    this.timerHandle = setInterval(() => {
+      this.generateReview();
+      setTimeout(this.removeFadeOutClasses, this.animationTime*2);
+    }, 5000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerHandle);
   }
 
+  defaultClientClasses = "w-full flex pr-5 font-bold ";
+  defaultReviewClasses = "w-full text-center pr-5 pl-5 font-semibold ";
+  clientClasses = this.defaultClientClasses;
+  reviewClasses = this.defaultReviewClasses;
 
   render() {
     const { reviews } = this.state;
     return (
       <div className="relative flex flex-col h-full justify-center">
         <div className="relative flex flex-col w-3/5 mr-auto ml-auto pt-10 pb-10 rounded-3xl bg-opacity-25 bg-yellow-200">
-          <div
-            id="quote"
-            className="w-full text-center pr-5 pl-5 font-semibold"
-          >
-            "{reviews.quote}"
+          <div id="review" className={this.reviewClasses}>
+            "{reviews.review}"
           </div>
-          <div className="w-full flex pr-5 font-bold">
+          <div className={this.clientClasses}>
             <div className="w-3/4"></div>
-            <cite id="quote-client" className="w-1/4">
+            <cite id="review-client" className="w-1/4">
               - {reviews.client}
             </cite>
           </div>
