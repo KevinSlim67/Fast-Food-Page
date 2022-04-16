@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+#header {
+  height: 400px;
+  background: #ffc250;
+  background-image: linear-gradient(
+      115deg,
+      rgba(235, 156, 65, 0.603),
+      rgba(240, 222, 61, 0.336)
+    ),
+    url(../src/assets/images/burger-header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navbar-button {
+  padding: 0.5rem 2rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  color:rgb(54, 39, 7);
+}
+
+.navbar-button:hover {
+  background-color: rgba(255, 194, 80, 0.39);
+}
+
+#quote, #quote-client {
+  font-size: 1.3em;
+  font-style: italic;
+  color: #640000;
+}
+
