@@ -63,15 +63,15 @@ class ReviewGenerator extends Component {
     this.timerHandle = setInterval(() => {
       this.generateReview();
       setTimeout(this.removeFadeOutClasses, this.animationTime*2);
-    }, 5000);
+    }, 30000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerHandle);
   }
 
-  defaultClientClasses = "w-full flex pr-5 font-bold ";
-  defaultReviewClasses = "w-full text-center pr-5 pl-5 font-semibold ";
+  defaultClientClasses = "w-full flex pr-5 font-bold text-primary_darker ";
+  defaultReviewClasses = "w-full text-center pr-5 pl-5 font-semibold text-primary_darker ";
   clientClasses = this.defaultClientClasses;
   reviewClasses = this.defaultReviewClasses;
 
