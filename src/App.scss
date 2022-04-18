@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  --primary: #b31c1c;
+  --primary-lighter: #b36363;
+  --secondary: #f2e2e1;
+  --third: #5f9d14;
+  --accent: #582b39;
+  --accent-lighter: #816870;
+  --accent-opacity-95: #582b39ee;
+}
+
+.App {
+  height: auto;
+  box-sizing: border-box;
+  background-color: var(--secondary);
+}
+
+#header {
+  height: 400px;
+  margin: 1.6rem;
+  border-radius: 15px;
+  background: var(--third);
+  background-image: linear-gradient(
+      115deg,
+      rgba(235, 156, 65, 0.603),
+      rgba(240, 222, 61, 0.336)
+    ),
+    url(../src/assets/images/burger-header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navbar-button {
+  padding: 0.5rem 2rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+#review,
+#review-client {
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.fade-in {
+  opacity: 100%;
+  transition: opacity 400ms ease;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+#latest-offers {
+  display: grid;
+  grid-template-areas:
+    "offer1 offer2"
+    "offer1 offer3";
+  grid-template-columns: 40rem 20rem;
+  grid-template-rows: 15rem 15rem;
+  gap: 12px;
+  height: 29rem;
+  max-height: 29rem;
+}
+
+#latest-offers img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@for $i from 1 through 3 {
+  #offer#{$i} {
+    grid-area: offer#{$i};
+  }
+}
+
+#offer2 {
+  max-height: 14rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.field > label {
+  margin-right: 1.3rem;
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+.field > input,
+textarea {
+  background-color: var(--secondary);
+}
+
+.field > .required::before {
+  content: "*";
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field > input:focus[type="text"],
+input:focus[type="number"],
+input:focus[type="tel"],
+textarea:focus {
+  outline: solid;
+  outline-color: var(--primary-lighter);
+  outline-width: 2px;
+}
+
+#order-form {
+  width: 45rem;
+}

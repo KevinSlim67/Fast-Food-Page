@@ -4,9 +4,9 @@ import PlaceOrder from "./place_order";
 
 function MainPage() {
   return (
-    <div className="relative h-full m-16">
+    <div className="relative h-full">
       <LatestOffers />
-      <hr className="outline-accent m-16" />
+      <hr className="border-primary_darker m-16" />
       <PlaceOrder />
     </div>
   );

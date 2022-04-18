@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 function NavBar() {
   return (
-    <nav className="flex sticky top-0 left-0 z-50 bg-accent">
-      <button className="navbar-button hover:bg-accent_lighter">About</button>
-      <button className="navbar-button hover:bg-accent_lighter">Menu</button>
+    <nav className="flex sticky top-0 left-0 z-50 bg-primary_darker">
+      <button className="navbar-button hover:bg-primary">About</button>
+      <button className="navbar-button hover:bg-primary">Menu</button>
     </nav>
   );
 }

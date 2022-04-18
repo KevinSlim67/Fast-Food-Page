@@ -14,7 +14,8 @@ module.exports = {
       third: '#5f9d14',
       third_lighter: '#83AE50',
       accent: '#582b39',
-      accent_lighter: '#816870'
+      accent_lighter: '#816870',
+      accent_o_95: '#582b39ee'
     }
   },
   plugins: [],

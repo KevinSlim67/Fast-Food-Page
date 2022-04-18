@@ -1,12 +1,12 @@
-import React from 'react';
-import ReviewGenerator from './review_generator';
+import React from "react";
+import ReviewGenerator from "./review_generator";
 
 function Header() {
-    return ( 
-    <div id="header" className='relative'>
+  return (
+      <div id="header" className="relative">
         <ReviewGenerator />
-    </div> 
-    );
+      </div>
+  );
 }
 
 export default Header;

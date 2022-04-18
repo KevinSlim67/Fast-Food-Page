@@ -11,6 +11,7 @@ class ReviewGenerator extends Component {
 
   animationTime = 400;
 
+  //removes old review with a fade-out animation, then generates the new review with a fade-in animation
   generateReview = () => {
     this.clientClasses = this.defaultClientClasses + " fade-out ";
     this.reviewClasses = this.defaultReviewClasses + " fade-out ";
@@ -59,6 +60,7 @@ class ReviewGenerator extends Component {
     this.forceUpdate();
   };
 
+  //when the component is created, we generate a review every 30 seconds with setInterval()
   componentDidMount() {
     this.timerHandle = setInterval(() => {
       this.generateReview();
@@ -66,6 +68,7 @@ class ReviewGenerator extends Component {
     }, 30000);
   }
 
+  //when the component is removed, we stop the interval
   componentWillUnmount() {
     clearInterval(this.timerHandle);
   }
@@ -79,7 +82,7 @@ class ReviewGenerator extends Component {
     const { reviews } = this.state;
     return (
       <div className="relative flex flex-col h-full justify-center">
-        <div className="relative flex flex-col w-3/5 mr-auto ml-auto pt-10 pb-10 rounded-3xl bg-opacity-25 bg-yellow-200">
+        <div className="relative flex flex-col w-3/5 mr-auto ml-auto text-lg pt-10 pb-10 rounded-3xl bg-opacity-25 bg-yellow-200">
           <div id="review" className={this.reviewClasses}>
             "{reviews.review}"
           </div>
